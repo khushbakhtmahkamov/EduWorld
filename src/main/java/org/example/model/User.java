@@ -6,6 +6,16 @@ public class User {
     private String email;
     private String password;
 
+    private Language language;
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
     public String getName() {
         return name;
     }
@@ -38,10 +48,11 @@ public class User {
         this.password = password;
     }
 
-    public User(String name, int age, String email, String password) {
+    public User(String name, int age, String email, String password, Language language) {
         this.name = name;
         this.age = age;
         this.email = email;
         this.password = password;
+        this.language = language;
     }
 }
