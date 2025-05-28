@@ -2,12 +2,13 @@ package org.example;
 
 import org.example.model.User;
 import org.example.service.UserService;
+import org.example.service.UserServiceImpl;
 
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        UserService userService = new UserService();
+        UserService userService = new UserServiceImpl();
         User user1 = new User("User1",22,"test@maile","122");
         userService.addUser(user1);
 
