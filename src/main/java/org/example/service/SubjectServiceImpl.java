@@ -53,6 +53,9 @@ public class SubjectServiceImpl implements SubjectService {
                 filteredSubjects.add(subject);
             }
         }
+
+
+
         return filteredSubjects;
     }
 }
