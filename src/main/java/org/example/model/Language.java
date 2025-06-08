@@ -12,18 +12,22 @@ public class Language {
     }
 
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public String getCode() {
+
         return code;
     }
 
     public void setCode(String code) {
+
         this.code = code;
     }
 
@@ -32,6 +36,7 @@ public class Language {
     }
 
     public void setActive(boolean active) {
+
         isActive = active;
     }
 }

@@ -1,6 +1,8 @@
 package org.example.service;
 
-public class UserLanguagelmpl {
+
+
+public class UserLanguagelmpl implements UserLanguage {
     private String name;
     private String code;
     private boolean isActive;
@@ -11,27 +13,20 @@ public class UserLanguagelmpl {
         this.isActive = isActive;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
+    @Override
     public String getCode() {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    @Override
+    public String getName() {
+        return name;
     }
+
+    @Override
+    public boolean isActive() {
+        return isActive;
+    }
+
+
 }

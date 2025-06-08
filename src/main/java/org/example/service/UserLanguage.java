@@ -1,16 +1,15 @@
 package org.example.service;
 
+import org.example.model.Language;
 import java.util.List;
 
 public interface UserLanguage {
-    void setLanguage(String language);
-    String getLanguage();
+        String getCode();              // ISO-код, например "en"
+        String getName();              // Название, например "English"
+        boolean isActive();            // Активен ли язык
 
-    void setLanguages(List<String> languages);
-    List<String> getLanguages();
 
-    boolean addLanguage(String language);
-    boolean removeLanguage(String language);
+
 
 
 
