@@ -10,8 +10,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         UserService userService = new UserServiceImpl();
-        Language en = new Language("English", "en", true);
-        Language ru = new Language("Russian", "ru", true);
+        Language en = new Language(1L, "en", true);
+        Language ru = new Language(2L, "ru", true);
         User user1 = new User("User1", 22, "test@maile", "122", en);
         userService.addUser(user1);
 
