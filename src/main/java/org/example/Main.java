@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.model.Language;
+import org.example.model.Role;
 import org.example.model.Subject;
 import org.example.model.User;
 import org.example.service.SubjectService;
@@ -14,14 +15,16 @@ public class Main {
     public static void main(String[] args) {
 
         UserService userService = new UserServiceImpl();
+        Role adminRole = new Role(1L, "Admin", "Administrator with full access", true);
+        Role userRole = new Role(2L, "User", "Regular user with limited access", true);
         Language en = new Language("English", "en", true);
         Language ru = new Language("Russian", "ru", true);
-        User user1 = new User("User1", 22, "test@maile", "122", en);
+        User user1 = new User(1L,"User1", 22, "test@maile", "122", en, adminRole);
         userService.addUser(user1);
 
-        User user2 = new User("User2", 23, "test@maile1", "122", ru);
+        User user2 = new User(2L,"User2", 23, "test@maile1", "122", ru, userRole);
         userService.addUser(user2);
-        List<User> users = userService.getUsersByLanguage(ru);
+        List<User> users = userService.getByRole(adminRole);
         for (User user : users) {
             System.out.println("NameRU: " + user.getName() +
                     ", Age: " + user.getAge() +
