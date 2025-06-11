@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.model.Language;
+import org.example.model.Role;
 import org.example.model.User;
 
 import java.util.ArrayList;
@@ -50,6 +51,17 @@ public class UserServiceImpl implements UserService{
         List<User> filteredUsers = new ArrayList<>();
         for (User user : users) {
             if (user.getLanguage() != null && user.getLanguage().equals(language)) {
+                filteredUsers.add(user);
+            }
+        }
+        return filteredUsers;
+    }
+
+    @Override
+    public List<User> getByRole(Role role) {
+        List<User> filteredUsers = new ArrayList<>();
+        for (User user : users) {
+            if (user.getRole() != null && user.getRole().equals(role)) {
                 filteredUsers.add(user);
             }
         }
