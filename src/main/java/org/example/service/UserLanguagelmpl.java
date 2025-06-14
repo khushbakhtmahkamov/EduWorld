@@ -58,11 +58,16 @@ public class UserLanguagelmpl implements UserLanguage {
 
     @Override
     public List<Language> getAllLanguages() {
-        return List.of();
+        return languageList;
     }
 
     @Override
     public Language getLanguageByCode(String code) {
+        for (Language lang : languageList) {
+            if (lang.getCode().equals(code)) {
+                return lang;
+            }
+        }
         return null;
     }
 
