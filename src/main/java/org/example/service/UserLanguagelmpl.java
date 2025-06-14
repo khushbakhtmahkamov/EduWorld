@@ -18,6 +18,12 @@ public class UserLanguagelmpl implements UserLanguage {
         this.isActive = isActive;
     }
 
+    public UserLanguagelmpl() {
+        this.name = "";
+        this.code = "";
+        this.isActive = false;
+    }
+
 
     @Override
     public String getCode() {
