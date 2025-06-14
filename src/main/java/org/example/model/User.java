@@ -1,12 +1,32 @@
 package org.example.model;
 
 public class User {
+
+    private Long id;
     private String name;
     private int age;
     private String email;
     private String password;
 
     private Language language;
+
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Language getLanguage() {
         return language;
@@ -49,10 +69,12 @@ public class User {
     }
 
     public User(String name, int age, String email, String password, Language language) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
         this.password = password;
         this.language = language;
+        this.role = role;
     }
 }

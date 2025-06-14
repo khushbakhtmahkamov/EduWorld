@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         UserService userService = new UserServiceImpl();
         Language en = new Language(1L, "English", "en", true);
-        Language ru = new Language(2L,"Russian", "ru", true);
+        Language ru = new Language(2L, "Russian", "ru", true);
         User user1 = new User("User1", 22, "test@maile", "122", en);
         userService.addUser(user1);
 
