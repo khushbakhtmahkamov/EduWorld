@@ -1,9 +1,9 @@
 package org.example.model;
 
 public class Schedule {
-    private long scheduleId;
+    private Long scheduleId;
     private String description;
-    private boolean isActive;
+    private Boolean isActive;
 
     Lesson lesson;
 
