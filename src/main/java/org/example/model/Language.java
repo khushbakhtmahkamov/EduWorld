@@ -3,7 +3,7 @@ package org.example.model;
 public class Language {
     String name;
     String code;
-    boolean isActive;
+    Boolean isActive;
 
     public Language(String name, String code, boolean isActive) {
         this.name = name;
