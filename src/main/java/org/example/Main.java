@@ -4,11 +4,16 @@ import org.example.model.Language;
 import org.example.model.Role;
 import org.example.model.Subject;
 import org.example.model.User;
+import org.example.model.Task;
 import org.example.service.SubjectService;
 import org.example.service.SubjectServiceImpl;
 import org.example.service.UserService;
 import org.example.service.UserServiceImpl;
+import org.example.service.TaskService;
+import org.example.service.TaskServiceImpl;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -85,5 +90,31 @@ public class Main {
         for (Subject subject : remainingSubjects) {
             System.out.println(subject);
         }
+
+        List<Task> taskList = new ArrayList<>();
+
+        Task task1 = new Task(1L, "Solve equation x + 2 = 5", "2025-06-10", "2025-06-20", true, 1, 101L, 201L);
+        Task task2 = new Task(2L, "Read about World War II", "2025-06-11", "2025-06-25", false, 2, 102L, 202L);
+
+        taskList.add(task1);
+        taskList.add(task2);
+
+        System.out.println("\nВсе задачи:");
+        for (Task task : taskList) {
+            System.out.println("ID: " + task.getTaskId()
+                    + ", Вопрос: " + task.getQuestion()
+                    + ", Активна: " + task.isActive()
+                    + ", Уровень: " + task.getLevel());
+        }
+
+        // Фильтрация: активные задачи
+        System.out.println("\nАктивные задачи:");
+        for (Task task : taskList) {
+            if (task.isActive()) {
+                System.out.println("ID: " + task.getTaskId()
+                        + ", Вопрос: " + task.getQuestion());
+            }
+        }
+
     }
 }
