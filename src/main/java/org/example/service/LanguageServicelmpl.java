@@ -5,20 +5,20 @@ import org.example.model.Language;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserLanguagelmpl implements UserLanguage {
+public class LanguageServicelmpl implements LanguageService {
     private String name;
     private String code;
     private boolean isActive;
 
     private final List<Language> languageList = new ArrayList<Language>();
 
-    public UserLanguagelmpl(String language, String code, boolean isActive) {
+    public LanguageServicelmpl(String language, String code, boolean isActive) {
         this.name = language;
         this.code = code;
         this.isActive = isActive;
     }
 
-    public UserLanguagelmpl() {
+    public LanguageServicelmpl() {
         this.name = "";
         this.code = "";
         this.isActive = false;

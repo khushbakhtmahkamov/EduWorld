@@ -9,7 +9,7 @@ public class Schedule {
 
     public Schedule(long scheduleId,String description, boolean isActive, Lesson lesson)
     {
-        this.scheduleId = scheduleId;;
+        this.scheduleId = scheduleId;
         this.description = description;
         this.isActive = isActive;
         this.lesson = lesson;

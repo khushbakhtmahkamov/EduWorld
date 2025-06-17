@@ -1,9 +1,10 @@
 package org.example;
 
 import org.example.model.Language;
+import org.example.model.Role;
 import org.example.model.User;
-import org.example.service.UserLanguage;
-import org.example.service.UserLanguagelmpl;
+import org.example.service.LanguageService;
+import org.example.service.LanguageServicelmpl;
 import org.example.service.UserService;
 import org.example.service.UserServiceImpl;
 
@@ -12,15 +13,17 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         UserService userService = new UserServiceImpl();
-        UserLanguage userLanguage = new UserLanguagelmpl();
+        LanguageService userLanguage = new LanguageServicelmpl();
+        Role adminRole = new Role(1L, "Admin", "Administrator with full access", true);
+        Role userRole = new Role(2L, "User", "Regular user with limited access", true);
         Language en = new Language(1L, "English", "en", true);
         userLanguage.createLanguage(en);
         Language ru = new Language(2L, "Russian", "ru", true);
         userLanguage.createLanguage(ru);
 
-        User user1 = new User("User1", 22, "test@maile", "122", en);
+        User user1 = new User(1L, "User1", 22, "test@maile", "122", en, adminRole);
         userService.addUser(user1);
-        User user2 = new User("User2", 23, "test@maile1", "122", ru);
+        User user2 = new User(2L, "User2", 23, "test@maile1", "122", ru, userRole);
         userService.addUser(user2);
         List<User> users = userService.getUsersByLanguage(ru);
         for (User user : users) {
