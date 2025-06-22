@@ -9,9 +9,13 @@ public interface LanguageService {
         boolean isActive();            // Активен ли язык
 
 
+    void createLanguage(Language language);
 
+    void deleteLanguage(Language language);
 
+    void setActive(Long id, boolean active);
 
+    List<Language> getAllLanguages();
 
-
+    Language getLanguageByCode(String code);
 }
