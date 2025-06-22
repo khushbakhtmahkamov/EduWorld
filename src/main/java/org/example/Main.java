@@ -1,19 +1,8 @@
 package org.example;
 
-import org.example.model.Language;
-import org.example.model.Role;
-import org.example.model.Subject;
-import org.example.model.User;
-import org.example.model.Task;
-import org.example.service.SubjectService;
-import org.example.service.SubjectServiceImpl;
-import org.example.service.UserService;
-import org.example.service.UserServiceImpl;
-import org.example.service.TaskService;
-import org.example.service.TaskServiceImpl;
+import org.example.model.*;
+import org.example.service.*;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -22,8 +11,8 @@ public class Main {
         UserService userService = new UserServiceImpl();
         Role adminRole = new Role(1L, "Admin", "Administrator with full access", true);
         Role userRole = new Role(2L, "User", "Regular user with limited access", true);
-        Language en = new Language("English", "en", true);
-        Language ru = new Language("Russian", "ru", true);
+        Language en = new Language(1L, "English", "en", true);
+        Language ru = new Language(2L, "Russian", "ru", true);
         User user1 = new User(1L,"User1", 22, "test@maile", "122", en, adminRole);
         userService.addUser(user1);
 
@@ -91,29 +80,22 @@ public class Main {
             System.out.println(subject);
         }
 
-        List<Task> taskList = new ArrayList<>();
+        LessonService lessonService = new LessonServiceImpl();
 
-        Task task1 = new Task(1L, "Solve equation x + 2 = 5", "2025-06-10", "2025-06-20", true, 1, 101L, 201L);
-        Task task2 = new Task(2L, "Read about World War II", "2025-06-11", "2025-06-25", false, 2, 102L, 202L);
+        Lesson lesson1 = new Lesson(1L, "2025-06-30", "2025-06-01", true, "Intro to Java", "Java Basics");
+        Lesson lesson2 = new Lesson(2L, "2025-07-15", "2025-07-01", false, "Deep dive into Java", "Java Advanced");
 
-        taskList.add(task1);
-        taskList.add(task2);
+        lessonService.addLesson(lesson1);
+        lessonService.addLesson(lesson2);
 
-        System.out.println("\nВсе задачи:");
-        for (Task task : taskList) {
-            System.out.println("ID: " + task.getTaskId()
-                    + ", Вопрос: " + task.getQuestion()
-                    + ", Активна: " + task.isActive()
-                    + ", Уровень: " + task.getLevel());
+        System.out.println("\nВсе уроки:");
+        for (Lesson lesson : lessonService.getAllLessons()) {
+            System.out.println(lesson.getId() + ": " + lesson.getName() + " — " + lesson.getStart_date() + " to " + lesson.getEnd_date());
         }
 
-        // Фильтрация: активные задачи
-        System.out.println("\nАктивные задачи:");
-        for (Task task : taskList) {
-            if (task.isActive()) {
-                System.out.println("ID: " + task.getTaskId()
-                        + ", Вопрос: " + task.getQuestion());
-            }
+        System.out.println("\nАктивные уроки:");
+        for (Lesson lesson : lessonService.getActiveLessons()) {
+            System.out.println(lesson.getName());
         }
 
     }
